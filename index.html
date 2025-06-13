@@ -21,6 +21,7 @@
         <div id="news-container" class="max-w-4xl mx-auto px-4 sm:px-6"></div>
         <footer class="mt-10 text-center text-gray-500">
             <p>made by Tiago</p>
+            <p>Last updated: <span id="last-updated-date"></span></p>
         </footer>
     </main>
 
@@ -70,6 +71,18 @@
         const warningPage = document.getElementById('warning-page');
         const newsPage = document.getElementById('news-page');
         const newsContainer = document.getElementById('news-container');
+        const lastUpdatedDate = document.getElementById('last-updated-date');
+
+        // Function to format the current date
+        function getCurrentDate() {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date().toLocaleDateString('en-US', options);
+        }
+
+        // Set the last updated date
+        if (lastUpdatedDate) {
+            lastUpdatedDate.textContent = getCurrentDate();
+        }
 
         // Function to shuffle array
         function shuffleArray(array) {
